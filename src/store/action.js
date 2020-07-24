@@ -1,0 +1,6 @@
+export const inc = "inc"
+export const dec = "dec"
+export const add10 = "add10"
+export const sub10 = "sub10"
+export const STORE = "STORE"
+export const DELE = "DELE"
