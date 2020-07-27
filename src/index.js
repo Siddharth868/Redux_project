@@ -5,7 +5,12 @@ import App from './App';
 import {createStore,applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './store/reducer'
+import createSagaMiddleware from 'redux-saga'
+import {watchINC} from './saga'
+import thunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
+
+//const SagaMiddleware=createSagaMiddleware()
 
 const logger= store =>{
   return next =>{
@@ -18,7 +23,9 @@ const logger= store =>{
     }
   }
 }
-const store=createStore(reducer,applyMiddleware(logger));
+
+const store=createStore(reducer,applyMiddleware(thunk));
+//SagaMiddleware.run(watchINC)
 
 ReactDOM.render(
   <React.StrictMode>
